@@ -4,14 +4,19 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;;Quickfix -Danny
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;; This is only needed once, near the top of the file
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
+  (require 'use-package))
 
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
+;; Quick fix - Danny
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (evil-mode 1)
+
 ;;(load-theme 'cyberpunk t)
 (load-theme 'spacemacs-dark t)
 
@@ -26,7 +31,7 @@
  '(fci-rule-color "#383838")
  '(package-selected-packages
    (quote
-    (spacemacs-theme cyberpunk-theme web-mode omnisharp evil undo-tree))))
+    (use-package spacemacs-theme cyberpunk-theme web-mode omnisharp evil undo-tree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
