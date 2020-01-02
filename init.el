@@ -28,6 +28,7 @@
 ;; Mods
 (evil-mode 1)
 (load-theme 'moe-dark t)
+(tool-bar-mode -1)
 
 ;;Files
 (add-to-list 'auto-mode-alist
