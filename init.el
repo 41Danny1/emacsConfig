@@ -22,32 +22,56 @@
 ;; Managed packages
 (use-package undo-tree)
 (use-package evil)
-(use-package moe-theme)
+;;(use-package moe-theme)
 (use-package web-mode)
+(use-package dracula-theme)
+(use-package diff-hl)
+(use-package omnisharp)
+(use-package company)
 
 ;; Mods
 (evil-mode 1)
-(load-theme 'moe-dark t)
+(load-theme 'dracula t)
+(global-diff-hl-mode 1)
+;; Cutting down on clutter files
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
-;;Alternatively, use "~/.backups-emacs"
+;; Alternatively, use "~/.backups-emacs"
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;;Files
+;; UI fixes
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; Omnisharp setup
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(eval-after-load
+ 'company
+ '(add-to-list 'company-backends 'company-omnisharp))
+(add-hook 'csharp-mode-hook #'company-mode)
+(add-hook 'csharp-mode-hook #'flycheck-mode)
+
+
+;; Files
+;; php
 (add-to-list 'auto-mode-alist
 	     '("\\.php\\'" . web-mode))
-
 (add-hook 'web-mode 'display-line-numbers-mode)
+;; c#
+(add-hook 'csharp-mode-hook 'display-line-numbers-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (use-package))))
+ '(package-selected-packages
+   (quote
+    (company omnisharp diff-hl dracula-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
