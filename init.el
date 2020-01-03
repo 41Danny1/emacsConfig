@@ -29,11 +29,12 @@
 (evil-mode 1)
 (load-theme 'moe-dark t)
 (setq backup-directory-alist
-      `((".*" . "~/.backups-emacs")))
-(setq auto-save-mode nil)
+      `((".*" . ,temporary-file-directory)))
+;;Alternatively, use "~/.backups-emacs"
+(setq auto-save-default nil)
 (setq create-lockfiles nil)
-;;(setq auto-save-file-name-transforms
-;;      `((".*" "~/.saves-emacs/" t)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;;Files
 (add-to-list 'auto-mode-alist
