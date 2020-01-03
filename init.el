@@ -30,6 +30,8 @@
 (load-theme 'moe-dark t)
 (setq backup-directory-alist
       `((".*" . "~/.backups-emacs")))
+(setq auto-save-mode nil)
+(setq create-lockfiles nil)
 ;;(setq auto-save-file-name-transforms
 ;;      `((".*" "~/.saves-emacs/" t)))
 
