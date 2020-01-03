@@ -45,7 +45,8 @@
 ;; UI fixes
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+;;(scroll-bar-mode -1)
+(if (fboundp 'set-scroll-bar-mode) (set-scroll-bar-mode 'nil))
 
 ;; Omnisharp setup
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
@@ -54,7 +55,6 @@
  '(add-to-list 'company-backends 'company-omnisharp))
 (add-hook 'csharp-mode-hook #'company-mode)
 (add-hook 'csharp-mode-hook #'flycheck-mode)
-
 
 ;; Files
 ;; php
@@ -69,6 +69,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("28caf31770f88ffaac6363acfda5627019cac57ea252ceb2d41d98df6d87e240" default)))
  '(package-selected-packages
    (quote
     (company omnisharp diff-hl dracula-theme use-package))))
