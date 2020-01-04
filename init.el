@@ -34,6 +34,7 @@
 (load-theme 'dracula t)
 (global-diff-hl-mode 1)
 (setq-default word-wrap t)
+(show-paren-mode t)
 
 ;; Cutting down on clutter files
 (setq backup-directory-alist
