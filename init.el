@@ -60,7 +60,7 @@
 ;; php
 (add-to-list 'auto-mode-alist
 	     '("\\.php\\'" . web-mode))
-(add-hook 'web-mode 'display-line-numbers-mode)
+(add-hook 'web-mode-hook 'display-line-numbers-mode)
 ;; c#
 (add-hook 'csharp-mode-hook 'display-line-numbers-mode)
 
