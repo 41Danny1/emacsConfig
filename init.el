@@ -33,6 +33,8 @@
 (evil-mode 1)
 (load-theme 'dracula t)
 (global-diff-hl-mode 1)
+(setq-default word-wrap t)
+
 ;; Cutting down on clutter files
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
