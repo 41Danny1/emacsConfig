@@ -28,6 +28,8 @@
 (use-package diff-hl)
 (use-package omnisharp)
 (use-package company)
+(use-package treemacs)
+(use-package treemacs-evil)
 
 ;; Mods
 (evil-mode 1)
